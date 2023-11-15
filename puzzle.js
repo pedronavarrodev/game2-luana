@@ -22,7 +22,7 @@ function shuffleArray(array) {
 
 // Cria o array e embaralha
 var imgOrder = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
-shuffleArray(imgOrder);
+// shuffleArray(imgOrder);
 
 
 window.onload = function() {
@@ -65,7 +65,6 @@ function isAdjacentToEmptySpace(tile) {
 function checkComplete() {
     var correctOrder = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
     var currentOrder = [];
-    tocarMsc()
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < columns; c++) {
             let tileImg = document.getElementById(r.toString() + "-" + c.toString()).src;
@@ -75,11 +74,11 @@ function checkComplete() {
     }
 
     if (currentOrder.join('') === correctOrder.join('')) {
-        if (turns > 150) {
-            alert("Parabéns! Você completou o quebra-cabeça 🎉! mas levou mais de 150 turnos e não pode ver a mensagem secreta, para tentar de novo, atualize a página");
+        if (turns > 110) {
+            alert("Parabéns! Você completou o quebra-cabeça 🎉! mas levou mais de 110 turnos e não pode ver a mensagem secreta, para tentar de novo, atualize a página");
             location.reload();
         } else {
-            if (confirm("Incrível! Você completou o quebra-cabeça em menos de 150 turnos! Clique em OK para ir até a página secreta 🥰")) {
+            if (confirm("Incrível! Você completou o quebra-cabeça em menos de 110 turnos! Clique em OK para ir até a página secreta 🥰")) {
                 setTimeout(function() {
                     window.location.href = "https://pedronavarrodev.github.io/endgame-lua/";
                 }, 2000); // Atraso de 3 segundos
@@ -151,8 +150,6 @@ function dragEnd() {
 }
 
 // som ao mover
-var mscFundo = new Audio('./msc.mp3'); // caminho do audio
-mscFundo.volume = 0.1; // Ajustar o volume aqui, 0.5 é 50% do volume máximo
 
 var moveSound = new Audio('./click.mp3'); // caminho do audio
 moveSound.volume = 0.1; // Ajustar o volume aqui, 0.5 é 50% do volume máximo
